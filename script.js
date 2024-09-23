@@ -1,5 +1,5 @@
-let cars = [];
-let id = 0;
+const cars = [];
+const id = 0;
 
 function createCar() {
     const model = prompt("Digite o modelo do carro:");
@@ -64,4 +64,16 @@ function searchCar() {
         li.textContent = `ID: ${car.id} | Modelo: ${car.model} | Marca: ${car.brand} | Ano: ${car.year} | Cor: ${car.color} | Preço: ${car.price}`;
         carList.appendChild(li);
     });
+}
+function deleteCar() {
+    const carId = prompt("Digite o ID do carro que deseja remover:");
+    const carIndex = cars.findIndex(c => c.id == carId);
+
+    if (carIndex > -1) {
+        cars.splice(carIndex, 1);
+        alert("Carro removido com sucesso!");
+        displayCars();
+    } else {
+        alert("Carro não encontrado!");
+    }
 }
